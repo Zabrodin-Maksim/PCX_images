@@ -1,0 +1,36 @@
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\alchemy_palette.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\christmas_palette.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\forms.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\forms_palette.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\marbles.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\marbles_palette.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\PcxLibrary.deps.json
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\PcxLibrary.dll
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\PcxLibrary.pdb
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.csproj.AssemblyReference.cache
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.AssemblyInfoInputs.cache
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.AssemblyInfo.cs
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.csproj.CoreCompileInputs.cache
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.dll
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\refint\PcxLibrary.dll
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.pdb
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\ref\PcxLibrary.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\alchemy_palette.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\christmas_palette.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\forms.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\forms_palette.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\marbles.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\Resources\marbles_palette.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\PcxLibrary.deps.json
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\PcxLibrary.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\bin\Debug\net6.0\PcxLibrary.pdb
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.csproj.AssemblyReference.cache
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.AssemblyInfoInputs.cache
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.AssemblyInfo.cs
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.csproj.CoreCompileInputs.cache
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\refint\PcxLibrary.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\PcxLibrary.pdb
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxLibrary\obj\Debug\net6.0\ref\PcxLibrary.dll

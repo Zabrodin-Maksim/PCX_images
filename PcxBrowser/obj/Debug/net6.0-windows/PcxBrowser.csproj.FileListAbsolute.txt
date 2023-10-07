@@ -1,0 +1,54 @@
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.exe
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\alchemy_palette.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\christmas_palette.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\forms.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\forms_palette.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\marbles.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\marbles_palette.pcx
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.deps.json
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.runtimeconfig.json
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.dll
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.pdb
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\SixLabors.ImageSharp.dll
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxLibrary.dll
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxLibrary.pdb
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.csproj.AssemblyReference.cache
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.PcxBrowserForm.resources
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.csproj.GenerateResource.cache
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.AssemblyInfoInputs.cache
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.AssemblyInfo.cs
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.csproj.CoreCompileInputs.cache
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.csproj.CopyComplete
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.dll
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\refint\PcxBrowser.dll
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.pdb
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.genruntimeconfig.cache
+C:\Users\42070\source\repos\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\ref\PcxBrowser.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.exe
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\alchemy_palette.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\christmas_palette.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\forms.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\forms_palette.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\marbles.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\Resources\marbles_palette.pcx
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.deps.json
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.runtimeconfig.json
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxBrowser.pdb
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\SixLabors.ImageSharp.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxLibrary.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\bin\Debug\net6.0-windows\PcxLibrary.pdb
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.csproj.AssemblyReference.cache
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.PcxBrowserForm.resources
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.csproj.GenerateResource.cache
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.GeneratedMSBuildEditorConfig.editorconfig
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.AssemblyInfoInputs.cache
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.AssemblyInfo.cs
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.csproj.CoreCompileInputs.cache
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.csproj.CopyComplete
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\refint\PcxBrowser.dll
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.pdb
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\PcxBrowser.genruntimeconfig.cache
+C:\For Me\Studies\C#_Project\exercise-08-Zabrodin-Maksim\PcxBrowser\obj\Debug\net6.0-windows\ref\PcxBrowser.dll

@@ -1,0 +1,146 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibraryTests\\PcxLibraryTests.csproj": {}
+  },
+  "projects": {
+    "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibraryTests\\PcxLibraryTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibraryTests\\PcxLibraryTests.csproj",
+        "projectName": "PcxLibraryTests",
+        "projectPath": "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibraryTests\\PcxLibraryTests.csproj",
+        "packagesPath": "C:\\Users\\42070\\.nuget\\packages\\",
+        "outputPath": "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibraryTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\42070\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibrary\\PcxLibrary.csproj": {
+                "projectPath": "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibrary\\PcxLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibrary\\PcxLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibrary\\PcxLibrary.csproj",
+        "projectName": "PcxLibrary",
+        "projectPath": "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibrary\\PcxLibrary.csproj",
+        "packagesPath": "C:\\Users\\42070\\.nuget\\packages\\",
+        "outputPath": "C:\\For Me\\Studies\\C#_Project\\exercise-08-Zabrodin-Maksim\\PcxLibrary\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\42070\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

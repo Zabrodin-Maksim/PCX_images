@@ -1,0 +1,1146 @@
+<head>
+<title>GFF Format Summary: PCX</title>
+</head>
+<body>
+<h1><A NAME="SPEC-PCX">PCX</A></h1>
+
+
+<p>
+<b>Also Known As:</b> <P>PC Paintbrush File Format,
+      DCX, PCC
+<p>
+<hr>
+<p>
+
+<p>
+<table border=0>
+<tr valign=top>
+  <td align=left><b>Type</b></td>
+  <td align=left>Bitmap</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>Colors</b></td>
+  <td align=left>Mono, 4-bit, 8-bit, 24-bit</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>Compression</b></td>
+  <td align=left>RLE, uncompressed</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>Maximum Image Size</b></td>
+  <td align=left>64Kx64K pixels</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>Multiple Images Per File</b></td>
+  <td align=left>No</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>Numerical Format</b></td>
+  <td align=left>Little-endian</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>Originator</b></td>
+  <td align=left>ZSoft, Microsoft</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>Platform</b></td>
+  <td align=left>MS-DOS, Windows, UNIX, others</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>Supporting Applications</b></td>
+  <td align=left>Too numerous to list</td>
+</tr>
+<tr valign=top>
+  <td align=left><b>See Also</b></td>
+  <td align=left><A HREF="fax.htm">FAX formats</A></td>
+</tr>
+</table>
+<p>
+<b>Usage</b><br>
+PCX is used in Microsoft Windows and
+      Windows-based products but has found wide acceptance mainly in
+      the MS-DOS world. It is mainly an exchange
+      and storage format.
+<p>
+<b>Comments</b><br>
+A partially documented format in wide use, which is quick and
+      easy to read and decompress. It lacks, however, a superior
+      compression scheme, making it unsuitable for the storage of
+      deep-pixel images.
+<p>
+<a href="../../vendspec/pcx/index.htm">Vendor specifications</a>
+are available for this format.
+<p>
+<a href="../../sample/code/pcx/index.htm">Code fragments</a>
+are available for this format.
+<p>
+<a href="../../sample/images/pcx/index.htm">Sample images</a>
+are available for this format.
+<p>
+<!--SOFTWARE:pcx-->
+<p>
+<hr>
+<p>
+<A NAME="PCX-DMYID.1"><!-- Overview anchor --></A>
+<P>
+
+PCX is one of the most widely used storage
+formats. It originated with ZSoft's MS-DOS-based
+PC Paintbrush, and because of this,
+PCX is sometimes referred to as the
+PC Paintbrush format. ZSoft entered into an
+OEM arrangement with Microsoft, which allowed
+Microsoft to bundle PC Paintbrush with various
+products, including a version called Microsoft Paintbrush for Windows;
+this product was distributed with every copy of Microsoft Windows
+sold. This distribution established the importance of
+PCX, not only on Intel-based
+MS-DOS platforms, but industry-wide.
+
+
+<P>
+<B>Contents:</B><br>
+<A HREF="#PCX-DMYID.2">File Organization</A><br>
+<A HREF="#PCX-DMYID.3">File Details</A><br>
+<A HREF="#PCX-DMYID.4">For Further Information</A><br>
+
+<P>
+PCX has been used by manufacturers of
+computer-based FAX boards and also as a general
+format for the storage of clip art targeted at the desktop publishing
+aftermarket.
+
+<P>
+The original PCX format (starting with v2.5
+of PC Paintbrush) stored graphics and images with
+no more than 16 colors, due to the limitations of Enhanced Graphics
+Adapter (EGA)
+display technology produced by IBM. When
+IBM introduced the Virtual Graphics Array
+(VGA) display adapter,
+the PCX format was revised to store graphics and
+images with up to 256 colors.
+
+<P>
+The latest revision of the PCX format now includes
+the ability to store 24-bit color images. This allows the
+PCX format to be used for the storage of images
+created by the most advanced graphics, imaging, and video technology
+available today.
+
+<P>
+PCX is hardware-dependent in the sense that it was
+originally designed to accommodate a specific type of display
+hardware. Data may be stored either plane- or pixel-oriented, to
+accommodate the hardware design of the plane-oriented
+IBM EGA or the pixel-oriented
+IBM VGA display adapters.
+
+<P>
+Image data is encoded using an RLE variant, which
+is simple and somewhat quick in its operation, if not terribly
+efficient in actually reducing the size of the data. As with other
+RLE schemes, how much the PCX
+compression scheme reduces the size of a given image is difficult to
+say, because the reduction factor is dependent largely upon the
+content of the image (how "busy" the image is) and how many colors are
+actually used. Generally, an image incorporating 16 or fewer colors
+will be reduced by 40 to 70 percent from the original data, whereas a
+64- to 256-color image from a scanner or video source may be reduced
+by only 10 to 30 percent. It is possible for an image to be so complex
+that the PCX compression scheme actually causes the
+data to increase in size after compression. (For further discussion of
+these and other topics, please see <A HREF="../book/ch09_01.htm">Chapter 9, <i>Data Compression</i></A>.)
+
+<h2><A NAME="PCX-DMYID.2">File Organization</A></h2>
+
+<P>
+PCX files are organized into three major sections:
+the header, the image data, and the color palette. The color palette
+normally contains entries for 256 colors and is associated with the
+VGA display adapter. This VGA
+color palette is only found in later versions of the
+PCX image file format.
+
+<h2><A NAME="PCX-DMYID.3">File Details</A></h2>
+
+<P>
+This section describes the major sections of PCX
+files and methods of reading, compressing, encoding, and decoding
+these files.
+
+<h3><A NAME="PCX-DMYID.3.1">Header</A></h3>
+
+<P>
+The first 128 bytes of every PCX file is the
+header, which has the following format:
+<pre>
+typedef struct _PcxHeader
+{
+  BYTE  Identifier;        /* PCX Id Number (Always 0x0A) */
+  BYTE  Version;           /* Version Number */
+  BYTE  Encoding;          /* Encoding Format */
+  BYTE  BitsPerPixel;      /* Bits per Pixel */
+  WORD  XStart;            /* Left of image */
+  WORD  YStart;            /* Top of Image */
+  WORD  XEnd;              /* Right of Image
+  WORD  YEnd;              /* Bottom of image */
+  WORD  HorzRes;           /* Horizontal Resolution */
+  WORD  VertRes;           /* Vertical Resolution */
+  BYTE  Palette[48];       /* 16-Color EGA Palette */
+  BYTE  Reserved1;         /* Reserved (Always 0) */
+  BYTE  NumBitPlanes;      /* Number of Bit Planes */
+  WORD  BytesPerLine;      /* Bytes per Scan-line */
+  WORD  PaletteType;       /* Palette Type */
+  WORD  HorzScreenSize;    /* Horizontal Screen Size */
+  WORD  VertScreenSize;    /* Vertical Screen Size */
+  BYTE  Reserved2[54];     /* Reserved (Always 0) */
+} PCXHEAD;
+</pre>
+<P>
+Identifier is an identification value defined by the
+PCX specification as always being 10h. This value
+has no real meaning other than to indicate that the file is a ZSoft
+PCX file. PCX readers should
+always check that this byte contains the proper value, even though the
+file may have the extension PCX. However, it is
+possible that a non-PCX format file might also
+begin with the value 10h, so the remainder of the header information
+should be read, and the information fields be checked for the proper
+values before trying to decode any image data in the file. In other
+words, don't just jump to byte offset 128 and start decoding what you
+think is encoded image data.
+
+<P>
+Version contains the version of Paintbrush that created the
+PCX file. ZSoft has released updated revisions of
+the PCX format to keep up with the increasing
+functionality of its PC Paintbrush program and the
+burgeoning display adapter technology available for the
+PC. Each PCX file version has
+separate requirements for handling and displaying its image. Prior to
+v2.5 of PC Paintbrush, the
+PCX image file format was considered proprietary
+information by ZSoft Corporation.
+
+<P>
+Possible values for Version are shown as follows:
+
+<p>
+<TABLE>
+<TR>
+<TH ALIGN=LEFT><P>
+Value</TH><TH ALIGN=LEFT><P>
+PC Paintbrush Version and Description</TH></TR>
+<TR>
+<TD ALIGN=LEFT><P>
+0</TD>
+<TD ALIGN=LEFT><P>
+Version 2.5 with fixed EGA palette information</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+2</TD>
+<TD ALIGN=LEFT><P>
+Version 2.8 with modifiable EGA palette information</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+3</TD>
+<TD ALIGN=LEFT><P>
+Version 2.8 without palette information</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+4</TD>
+<TD ALIGN=LEFT><P>
+PC Paintbrush for Windows</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+5</TD>
+<TD ALIGN=LEFT><P>
+<P>
+Version 3.0 of PC Paintbrush, PC Paintbrush Plus, PC
+  Paintbrush Plus for Windows, Publisher's Paintbrush, and all
+  24-bit image files</TD>
+</TR>
+</TABLE>
+<P>
+<P>
+Encoding indicates the type of encoding used on the image data. The
+only encoding algorithm currently supported by the
+PCX specification is a simple byte-wise run-length
+encoding (RLE) scheme indicated by a value of 1 in
+this byte. It would seem to follow that if a PCX
+file held unencoded image data this value would be
+0. PCX files, however, always contain encoded image
+data, and currently the only valid value for the encoding field is 1.
+
+<P>
+BitsPerPixel is the number of bits per pixel per plane in the image
+data. The possible values are 1, 2, 4, and 8 for 2-, 4-, 16-, and
+256-color images. The planar data in a scan line is often padded with
+extra data to align the scan line on an even byte boundary to prevent
+aliasing (the "jaggies"). PCX paint and conversion
+programs use this value to find where in a scan line pixel data stops
+and extra padding begins.
+
+<P>
+XStart, YStart, XEnd, and YEnd store the size of the image in
+pixels. These four values are the rectangular dimensions of the
+visible part of the PCX image (sometimes called the
+<i>picture dimension window</i>) and its position
+relative to the physical display screen. Using these dimensions, the
+largest PCX image that can be stored is
+65,535x65,535 pixels in size. The dimensions are the location of
+the upper-left and lower-right corners of the PCX
+image on the display screen. The upper-left corner of the screen is
+considered to be at location 0,0, and any PCX image
+with an XStart and YStart of 0 will start displaying at this
+location. If the XStart and YStart are values greater than zero, then
+a display program should start displaying the PCX
+image starting at those pixel coordinates. However, this is a feature
+rarely supported by PCX display programs.
+
+<P>
+Any PCX image may contain extra bytes of padding at
+the end of each scan line or extra scan lines added to the bottom of
+the image. To prevent this extra data from becoming visible, only the
+image data within the picture dimension window coordinates is
+displayed.
+
+<P>
+HorzRes and VertRes are the horizontal and vertical size of the stored
+image in pixels per line or dots per inch
+(DPI). Scanned images have the
+DPI value of the device that created them. Typical
+DPI values for a scanned image may be 100x100
+DPI or 300x300 DPI. An
+image produced by a FAX card can have a resolution
+of 100x200 DPI or 200x200
+DPI. Images created by paint or screen dump
+programs will have pixel resolution values that reflect the resolution
+of the display mode under which they were created. For example, a
+typical VGA paint program saves images with a
+horizontal resolution of 320 pixels and a vertical resolution of 200
+pixels. However, these values are not used when decoding image data.
+
+<P>
+Palette is a 48-byte array of 8-bit values that make up a 16-color
+EGA color palette. The earliest version of
+PC Paintbrush was not able to use a modifiable
+EGA palette and, therefore, used only the standard
+palette of the EGA.  Subsequent versions have
+allowed the use of a modifiable palette enabling a
+PCX image file writer to choose which 16 (or fewer)
+of the 64 colors available to the EGA to use.
+
+<P>
+Reserved1 is not currently used and should have a value of 00h. Older
+versions of PCX used this field for file
+identification or to hold the mode value of the display screen on
+which the PCX image was created. Several paint and
+graphics display programs will, in fact, claim that a
+PCX file is invalid if this field is not set to
+00h.
+
+<P>
+NumBitPlanes is the number of color planes that contains the image
+data. The number of planes is usually 1, 3, or 4 and is used in
+conjunction with the BitsPerPixel value to determine the proper video
+mode in which to display the image. PCX video
+display modes are shown as follows:
+
+<p>
+<TABLE>
+<TR>
+<TH ALIGN=LEFT><P>
+</TH><TH ALIGN=LEFT><P>
+Bits per Pixel</TH><TH ALIGN=LEFT><P>
+Maximum</TH><TH ALIGN=LEFT><P>
+</TH></TR>
+<TR>
+<TH ALIGN=LEFT><P>
+Color Planes</TH><TH ALIGN=LEFT><P>
+per Plane</TH><TH ALIGN=LEFT><P>
+Number of Colors</TH><TH ALIGN=LEFT><P>
+Video Mode</TH></TR>
+<TR>
+<TD ALIGN=LEFT><P>
+1</TD>
+<TD ALIGN=LEFT><P>
+1</TD>
+<TD ALIGN=LEFT><P>
+2</TD>
+<TD ALIGN=LEFT><P>
+Monochrome</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+1</TD>
+<TD ALIGN=LEFT><P>
+2</TD>
+<TD ALIGN=LEFT><P>
+4</TD>
+<TD ALIGN=LEFT><P>
+CGA</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+3</TD>
+<TD ALIGN=LEFT><P>
+1</TD>
+<TD ALIGN=LEFT><P>
+8</TD>
+<TD ALIGN=LEFT><P>
+EGA</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+4</TD>
+<TD ALIGN=LEFT><P>
+1</TD>
+<TD ALIGN=LEFT><P>
+16</TD>
+<TD ALIGN=LEFT><P>
+EGA and VGA</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+1</TD>
+<TD ALIGN=LEFT><P>
+8</TD>
+<TD ALIGN=LEFT><P>
+256</TD>
+<TD ALIGN=LEFT><P>
+Extended VGA</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+3</TD>
+<TD ALIGN=LEFT><P>
+8</TD>
+<TD ALIGN=LEFT><P>
+16,777,216</TD>
+<TD ALIGN=LEFT><P>
+Extended VGA and XGA</TD>
+</TR>
+</TABLE>
+<P>
+<P>
+NumBitPlanes is also used to determine the maximum number of colors a
+PCX image may have. The number of bits per pixel
+per plane is multiplied by the number of color planes and shifted to
+the left by one:
+<pre>
+MaxNumberOfColors = (1L &lt;&lt; (BitsPerPixel * NumBitPlanes));
+</pre>
+<P>
+BytesPerLine is a 16-bit value indicating the size in bytes of a color
+plane in an unencoded scan line. This value may be multiplied by the
+NumBitPlanes value to find the total length of an unencoded scan line
+in bytes:
+<pre>
+ScanLineLength = (BytesPerLine * NumBitPlanes);
+</pre>
+<P>
+PaletteType contains an indicator of information held in the color
+palette. A value of 1 indicates color or monochrome information, while
+a 2 indicates gray-scale information. This value is actually an
+indicator of whether the image should be displayed in color or
+gray-scale. (Only VGA is capable of displaying true
+gray-scale images.) PC Paintbrush and most other
+programs that use PCX files ignore this value.
+
+<P>
+HorzScreenSize and VertScreenSize were added to the
+PCX format starting with PC
+Paintbrush 4.0 and 4.0 Plus. These horizontal and vertical screen-size
+values represent the resolution of the screen on which the image was
+created. This allows graphics display programs to adjust their video
+mode to allow for proper display of the PCX
+image. Because these fields were added after the release of
+PC Paintbrush 3.0, there is no way to know if these
+fields contain valid information or are part of the Reserved2
+field. Therefore, always check these values to be sure they are
+reasonable before you use them.
+
+<P>
+Reserved2 is the last field in the header and is a run of bytes with
+the value 00h.  This filler field is used to pad the header out to a
+full 128 bytes and to save room for additional fields that might be
+added to the header in future revisions of the PCX
+format. The size of this field will be either 54 or 58 bytes,
+depending on whether or not the header contains the HorizScreenSize
+and VertScreenSize fields.
+
+<h3><A NAME="PCX-DMYID.3.2">Palette</A></h3>
+
+<P>
+The color palette information within a PCX file
+varies depending upon the version of the PCX file.
+
+<h4><A NAME="PCX-DMYID.3.2.1">16-color EGA palette</A></h4>
+
+<P>
+The first version of the PCX format did not support
+a modifiable color palette, so the values of the standard
+EGA color palette were always used. Later versions
+of PC Paintbrush could work with or without a
+modifiable palette, so two more versions of the PCX
+format appeared, one with palette information (modifiable palette) and
+one without palette information (standard EGA
+palette).
+
+<P>
+The EGA palette is a 48-byte array of 16
+RGB triples. Each color triple contains a red,
+green, and blue value, each with a range of 0 to 255. The palette will
+contain entries for 2, 4, 8, or 16 color triples with any remaining
+entries being set to 00h. No interpretation is necessary for display
+adapters using this format of color values. The
+EGA, however, has only four possible values for
+each RGB color (0 through 3), so each
+RGB value is shifted to the right by six to obtain
+the proper value. To extract the proper values to load into the
+EGA palette registers, the following code is used:
+<pre>
+EgaColor0Red   = EgaPalette[0] &gt;&gt; 6;
+EgaColor0Green = EgaPalette[1] &gt;&gt; 6;
+EgaColor0Blue  = EgaPalette[2] &gt;&gt; 6;
+EgaColor1Red   = EgaPalette[3] &gt;&gt; 6;
+EgaColor1Green = EgaPalette[4] &gt;&gt; 6;
+EgaColor1Blue  = EgaPalette[5] &gt;&gt; 6;
+ <br>.<br>.<br>.<br>
+</pre>
+<h4><A NAME="PCX-DMYID.3.2.2">4-color CGA palette</A></h4>
+
+<P>
+The EGA color palette is also used for displaying
+CGA images. Two- or four-color images may be
+displayed on the CGA using one of eight possible
+color palettes, each consisting of three foreground colors and one
+background color.
+
+<P>
+The most significant four bits of the first byte of the
+EGA color palette contains the background color and
+is in the range of 0 to 15.
+
+<P>
+The most significant three bits of the fourth byte of the color
+palette contains the foreground color. The three bits of the
+foreground color correspond to the Color Burst Enable, Palette, and
+Intensity settings of the CGA, as shown below.
+
+<p>
+<TABLE>
+<TR>
+<TH ALIGN=LEFT><P>
+Color Burst Enable</TH><TH ALIGN=LEFT><P>
+Palette</TH><TH ALIGN=LEFT><P>
+Intensity</TH></TR>
+<TR>
+<TH ALIGN=LEFT><P>
+(Bit 7)</TH><TH ALIGN=LEFT><P>
+(Bit 6)</TH><TH ALIGN=LEFT><P>
+(Bit 5)</TH></TR>
+<TR>
+<TD ALIGN=LEFT><P>
+0 (color)</TD>
+<TD ALIGN=LEFT><P>
+0 (yellow)</TD>
+<TD ALIGN=LEFT><P>
+0 (normal)</TD>
+</TR>
+<TR>
+<TD ALIGN=LEFT><P>
+1 (monochrome)</TD>
+<TD ALIGN=LEFT><P>
+1 (white)</TD>
+<TD ALIGN=LEFT><P>
+1 (bright)</TD>
+</TR>
+</TABLE>
+<P>
+<P>
+Code used to extract the CGA color-level data from
+the EGA color palette is shown below:
+<pre>
+/* Get the CGA background color */
+CgaBackgroundColor  = EgaPalette[0] &gt;&gt; 4;   /* 0 to 15 */
+/* Get the CGA foreground palette */
+CgaColorBurstEnable = (EgaPalette[3] &amp; 0x80) &gt;&gt; 7;  /* 0 or 1 */
+CgaPaletteValue     = (EgaPalette[3] &amp; 0x40) &gt;&gt; 6;  /* 0 or 1 */
+CgaIntensityValue   = (EgaPalette[3] &amp; 0x20) &gt;&gt; 5;  /* 0 or 1 */
+</pre>
+<h4><A NAME="PCX-DMYID.3.2.3">256-color VGA palette</A></h4>
+
+<P>
+When PCX was conceived, the EGA
+was the premium display adapter available from IBM
+for the PC. The EGA could
+display only 16 colors from a palette of 64, so PCX
+was originally designed with a color palette large enough to hold only
+16 colors.
+
+<P>
+The 16-color EGA technology of 1984, however, gave
+way to the 256-color VGA technology of
+1987. PCX now fell short of VGA
+standard images that could contain up to 256 colors from a palette of
+262,144, and a new color palette needed to be added to the
+PCX file format for VGA
+images. Because there was not enough room in the header for it, the
+designers of the PCX format appended it to the end
+of the PCX file itself.
+
+<P>
+This unconventional, if not inconvenient, location for the
+VGA palette presents a problem; because the size of
+the image data varies, the location of the VGA
+palette is different for every file. The position of the palette must
+be determined by its offset from the end of the file rather than from
+the beginning.
+
+<P>
+To see if a VGA palette is attached to a file, seek
+backwards 769 bytes from the end of the file. If the byte at this
+location is set to value C0h, then the 768 bytes following this value
+constitute a VGA color palette. The
+PCX specification states that if the version number
+in the header (byte 1) is 5 (v3.0), then there might be a
+VGA color palette attached.
+
+<P>
+Normally, a PCX file must have a
+VGA color palette
+ attached only if there are more than 16
+colors in the image; otherwise the EGA palette can
+be used.  However, many graphics programs create v3.0
+PCX image files without a VGA
+color palette, while other programs always attach a
+VGA color palette, even for 2-color images. To
+confuse things even more, 24-bit PCX images are
+always marked as v3.0, yet never have an attached color
+palette.
+
+<P>
+A v3.0 PCX image might not have a color
+palette; the value 768 bytes from the end of the file might be 0Ch by
+coincidence. In this rare case, a PCX reader would
+interpret the last 768 bytes of the encoded image data as a
+VGA palette, so a truly bizarre displayed image
+would result. One solution to this problem would be to first read all
+the image data and note whether the file pointer stopped 769 bytes
+from the end of the file. If so, then a
+VGA color palette is present. Another method would be
+to check the three bytes following the 0Ch value. This is the first
+color of the color palette and is normally black, so the three bytes
+following the suspect VGA palette indicator value
+should all be zero.
+
+<P>
+When a VGA palette is present in the file, its
+information is always used to display the image data, rather than
+using any information that may be present in the
+EGA color palette. If the colors in an image do not
+display correctly, it may be necessary to disable the color palette so
+the display hardware may use its native color palette. Disabling the
+color palette is accomplished by changing the version number in the
+header (byte 1) from 5 to 3. The display software should recognize
+that this version of the format has no color palette and, therefore,
+should use its own default palette.
+
+<P>
+The VGA palette itself is an array of 768 bytes
+(256x3) containing the red, green, and blue values for each of
+the 256 possible colors in a VGA
+PCX image.  Color values are organized into
+triples, as in the EGA palette. Bytes 0, 1, and 2
+are the red, green, and blue values for the color 0; bytes 3, 4, and 5
+are the red, green, and blues values for color 1; and so on. Each
+RGB value is in the range of 0 to 255.
+
+<P>
+ In fact, the VGA palette is simply a
+much longer version of the EGA palette.
+VGA display devices, however, require that palette
+color values be in the range of 0 to 63, so all RGB
+values should be divided by four (shifted to the right
+twice). VGA images may have 2-, 4-, 8-, 16-, 32-,
+64-, 128-, or 256-color entries in the palette.
+
+<h3><A NAME="PCX-DMYID.3.3">Reading the PCX Header</A></h3>
+
+<P>
+The PCX specification does not specifically state
+that the PCX image file format must use the least
+significant byte-ordering scheme used on Intel
+80<i>x</i> 86 processors, but we may safely
+assume that this is so because the PCX format was
+developed for use on Intel-based machines. If code that reads
+PCX-format files will only be executed on Intel
+machines, it is possible, although not portable, to use the
+fread() function to read the header on a
+little-endian machine:
+<pre>
+PCXHEADER pcx;
+if(fread(&amp;pcx, sizeof(char), sizeof(PCXHEADER), fp) !=
+        sizeof(PCXHEADER))
+    fputs("Error reading PCX header.", stderr);
+</pre>
+<h3><A NAME="PCX-DMYID.3.4">Compressing PCX Data</A></h3>
+
+<P>
+The data-encoding algorithm used in PCX files is a
+simple 1-byte/2-byte run-length encoding scheme. While this type of
+encoding is not the most effective in terms of reducing data size, it
+is very quick in its operation and quite easy to implement.
+
+<P>
+An image normally contains many series of pixel runs,
+that is, two or more contiguous pixels of the same value. Using the
+run-length data compression scheme, a run of pixels several bytes in
+length may be converted to a run code only two bytes in length.
+
+<P>
+The encoded data is read one byte at a time. If the two most
+significant bits (MSB) of the first byte read are
+set to 1, then this byte is the first byte of a 2-byte run code. The
+first byte in a 2-byte run code always contains the run count in its
+lower six bits, which is the length of the pixel run.  Therefore, a
+pixel run may be 1 to 63 pixels in length.
+
+<P>
+Using the two most significant bits to indicate a 2-byte code rather
+than just one, MSB is a holdover from the early
+CGA days of Paintbrush. Use of only one
+MSB resulted in poor compression for
+CGA data, so two were used instead.
+
+<P>
+The second byte of a 2-byte run code is the value of the pixel run
+itself. This value may be in the range 0 to 255 and is written to the
+output a number of times equal to the run count.
+
+<P>
+If a run-count byte is read and the two MSBs are
+both 0, then this byte is a run-value byte, and the run count is
+considered to be 1. This 1-byte run code is used to prevent a 1-pixel
+run from encoding into a 2-byte run code.
+
+<P>
+The PCX RLE encoding scheme is
+not perfect, however. A 1-byte run code can contain a run value only
+in the range 0 to 63. If the pixel run value is in the range 64 to
+255, a 2-byte run code must be used instead. If an image contains many
+single pixel runs of color values greater than 63, an increase of
+image data size can occur after PCX encoding. Such
+an increase in data size typically occurs only in very noisy or grainy
+images.
+
+<h3><A NAME="PCX-DMYID.3.5">Decoding a PCX Format File</A></h3>
+
+<P>
+To decode a file in PCX format, you must read the
+header of the file and calculate the following data:
+<p><ul>
+
+<li>Width of image in pixels
+
+<P>
+
+<li>Length of image in scan lines
+
+<P>
+
+<li>Number of bytes needed to hold a decoded scan
+line
+
+<P>
+
+<li>Number of padding bytes at the end of each scan
+line
+
+<P>
+</ul><p>
+<P>
+Calculate the image width and height from the image dimension values
+as follows:
+<pre>
+ImageWidth  = XEnd - XStart + 1; /* Width of image in pixels */
+ImageHeight = YEnd - YStart + 1; /* Length of image in scan lines */
+</pre>
+<P>
+Calculating the number of bytes required to hold a decoded scan line
+is necessary if the decoded image data is to be stored in a buffer. It
+is also necessary to determine if the image data has been encoded
+across scan lines. The number of color planes multiplied by the number
+of bytes per line per plane yields this value:
+<pre>
+ScanLineLength = NumBitPlanes * BytesPerLine;
+</pre>
+<P>
+The length of padding at the end of a scan line may be determined by
+calculating the number of pixels in an unencoded scan line and
+comparing this value with the pixel width of the displayed image:
+<pre>
+LinePaddingSize = ((BytesPerLine * NumBitPlanes) *
+                  (8 / BitsPerPixel)) - ((XEnd - XStart) + 1);
+</pre>
+<P>
+The decoding steps are the following:
+<p><ol>
+
+<li>Read a byte.
+
+<P>
+
+<li>If the two MSBs are set to 1, then
+mask off the run count.
+
+<P>
+
+<li>Read next byte.
+
+<P>
+
+<li>Write the byte a number of times equal to the run
+count.
+
+<P>
+
+<li>Else, if the two MSBs are set to 0,
+then mask off the run value.
+
+<P>
+
+<li>Write the byte once.
+
+<P>
+
+<li>Repeat steps 1 through 6 until the buffer is
+full.
+
+<P>
+</ol><p>
+<P>
+The code used to decode a scan line of information is as shown as follows:
+<pre>
+/*
+** Decode a PCX scan line.
+**
+** In this example the size of Buffer[] and the value of BufferSize
+** is equal to the scan line length. Data is read from the FILE
+** stream fpIn and written to Buffer[].
+*/
+do
+{
+  byte = GetByte(fpIn);                  /* Get next byte */
+  if ((byte &amp; 0xC0) == 0xC0)             /* 2-byte code */
+    runcount = byte &amp; 0x3F;              /* Get run count */
+    runvalue = GetByte(fpIn);            /* Get pixel value */
+    }
+  else                                   /* 1-byte code */
+    {
+    runcount = 1;                        /* Run count is one */
+    runvalue = byte;                     /* Pixel value */
+    }
+  /* Write the pixel run to the buffer */
+  for (total += runcount;                /* Update total */
+    runcount &amp;&amp; index &lt; BufferSize;      /* Don't read past buffer */
+  runcount--, index++)                   /* Update counters */
+  Buffer[index] = runvalue;              /* Assign value to buffer */
+  } while (index &lt; BufferSize);          /* Read to end of buffer */
+</pre>
+<P>
+The PCX specification states that a decoding break
+should occur at the end of each scan line. This means that when a run
+of data is being encoded, and the end of the scan line is reached, the
+run should stop and not continue across to the next scan line, if it
+is possible to stop it.
+
+<P>
+Decoding can be complicated by PCX files that have
+been encoded ignoring this rule. Encoding across scan lines gains a
+few extra bytes of compression, but the process of decoding a single
+scan line is made much more difficult.
+
+<h3><A NAME="PCX-DMYID.3.6">Encoding PCX Image Data</A></h3>
+
+<P>
+The scheme for encoding a scan line is fairly straightforward with
+only a few exceptions. Raw data is read one byte at a time. The only
+information needed is the number of bytes in a scan line. The
+following is the procedure for encoding image data using the
+PCX compression algorithm:
+
+<p><ol>
+
+<li>Read a byte of pixel data, and store the
+value.
+
+<P>
+
+<li>Set counter to 1.
+
+<P>
+
+<li>Read the next byte, and check if it is the same as the
+stored value.
+
+<P>
+
+<li>If it is the same, increment the counter.
+
+<P>
+
+<li>If it is not the same and the count is greater than
+one, or the count is 63, or if the end of the scan line has been
+reached, then mask on the two MSBs, and output the
+count value.
+
+<P>
+
+<li>Output the data value.
+
+<P>
+
+<li>Repeat steps 1 though 6 until all scan lines have been
+read.
+
+<P>
+</ol><p>
+<h3><A NAME="PCX-DMYID.3.7">PCX Image Data Format</A></h3>
+
+<P>
+Once a scan line has been decoded, the format of the data it contains
+depends upon the BitsPerPixel and the NumBitPlanes values found in the
+header. Knowing the data format of a scan line is necessary so you can
+parse the pixel data from a scan line for display of the image or
+conversion of the image file from one format to another. All scan
+lines in a PCX file always have the same format.
+
+<P>
+Scan-line pixel data is stored in one of two ways--either
+pixel-oriented or plane-oriented. Pixel-oriented data is stored with
+all the pixel data (either real data or indexes into a color palette)
+in a contiguous line. Plane-oriented data unrolls the pixel data into
+its red, green, and blue components and groups them by color across
+the scan line.
+
+<P>
+Single-plane data is stored pixel by pixel in one long plane that runs
+the length of the scan line. The data in the scan line is not the
+actual image data itself but is instead a series of index values into
+either the EGA or VGA color
+palettes. The exception for single-plane data is the 1-bit monochrome
+image, where each bit in a scan line maps directly as a pixel value.
+
+<P>
+How much of the scan-line data a single pixel occupies is determined
+from the BitsPerPixel value. For example, with one bit per pixel,
+every byte of scan-line data contains eight pixel values. With eight
+bits per pixel, every byte of scan-line data contains one pixel
+value. Monochrome, CGA, and 256-color
+VGA images usually contain only a single plane per
+scan line.
+
+<P>
+Scan lines with three planes are uncommon, but they do exist. 24-bit
+PCX images are stored using three bytes per pixel
+spread over three planes. The 24-bit data values are the actual color
+values for the image, and no color palette is used. Paintbrush for
+Windows 2.0 uses a 3-plane/1-bit data format to store 8-color images,
+where each pixel value is an index into the EGA
+color palette.
+
+<P>
+Images with four planes are usually 16-color EGA
+images. In addition to the red, green, and blue planes, there is a
+fourth intensity color plane that is specific to the
+EGA display card. Scan-line data in 4-plane images
+contains index values into the EGA palette.
+
+<h3><A NAME="PCX-DMYID.3.8">Related File Formats</A></h3>
+
+<P>
+Several other formats are direct spinoffs of the
+PCX file format. And in most cases they are just
+specialized versions of PCX.
+
+<h4><A NAME="PCX-DMYID.3.8.1">PCC image file format</A></h4>
+
+<P>
+Earlier versions of PC Paintbrush had the
+capability of clipping and copying an area of a PCX
+image and saving it to a file using the Copy To... command. The
+resulting file was saved as a PCX format file with
+the extension .PCC,
+possibly to indicate that the image the file contained was a portion
+of another image.  The current version of PC
+Paintbrush does not use the .PCC extension and uses the .PCX extension
+instead.
+
+<h4><A NAME="PCX-DMYID.3.8.2">DCX image
+file format</A></h4>
+
+<P>
+The PCX file format is capable of storing only a
+single image per file.  Applications that require two or more
+PCX image files to be identified as belonging to
+the same group often use a naming convention that will identify a
+collection of PCX files as being related to one
+another.
+
+<P>
+One such application is FAX software, where each
+facsimile page is stored as an individual image in a separate
+file. PCX became a popular format for
+PC-based FAX software, because
+facsimile pages saved in this format could be viewed using many
+popular paint and image display programs that supported
+PCX. However, storing each FAX
+page as a separate file can become quite cumbersome and also
+confusing, if each image has a cryptic filename.
+
+<P>
+In an effort to store PCX files in a manner more
+appropriate to facsimile applications, the DCX file
+format was created. The DCX format stores up to
+1023 PCX images within a single
+DCX file. Each image in the DCX
+file is a complete PCX image file, including header
+and palette information. In applications, DCX files
+may contain all of the pages of a facsimile transmission, a series of images
+of the same subject, or all of the illustrations within a
+document. The DCX header follows:
+<pre>
+typedef struct _DcxHeader
+{
+  DWORD Id;                      /* DCX Id number */
+  DWORD PageTable[1024];         /* Image offsets */
+} DCXHEAD;
+</pre>
+<P>
+Id is a 4-byte word used to identify the file. The value of this word
+is 3ADE68B1h (987,654,321 decimal).
+
+<P>
+PageTable is a table of 1024 4-byte word values. The values in this
+table are the offsets of each PCX image contained
+within the DCX file. The offset of each
+PCX image is measured from the beginning of the
+file (byte 0). The last entry of the page list is the terminator value
+and is always set to zero.
+
+<P>
+Typically, a DCX file contains an entire 4096-byte
+page list (1023 4-byte offset values followed by a 4-byte terminator
+value), even if most of the values in the list are zero. Some
+DCX file writers may try to save space by writing
+only the values of the offsets, followed by a 0 terminating word, but
+not the remaining part of the list. It is, therefore, important never
+to expect the page list to be a full 4096 bytes in
+length. DCX file readers should always read one
+value at a time and stop when a word value of zero is read. If the
+first offset value in the page list is 1004h (4100 decimal), then an
+entire 4096-byte page list is contained within the
+DCX file.
+
+<P>
+The DCX format is quite convenient and very easy to
+use; however, this format suffers from one major drawback. When a
+series of PCX files is concatenated into a
+DCX file, all the information within the
+PCX files is preserved, but the actual names of the
+PCX files are lost. No provision in the
+DCX format (or in the PCX format
+for that matter) exists for storing the MS-DOS
+filename of the PCX image files. Therefore, if the
+original PCX filenames are important to your
+application, you will have to devise some sort of name list that is
+maintained outside of the DCX file. Future
+revisions of the DCX format might correct this
+oversight (perhaps by appending a name list onto the end of the
+DCX file itself).
+
+<h2><A NAME="PCX-DMYID.4">For Further Information</A></h2>
+
+<P>
+For further information about the PCX format, see
+the format specification.
+
+<P>
+The PCX format was created and is maintained by
+ZSoft Corporation. For additional information, contact ZSoft at:
+<P>
+ZSoft Corporation<br>
+Attn: Shannon Donovan<br>
+450 Franklin Road, Suite 100<br>
+Marietta, GA 30067<br>
+Voice: 770-428-0008<br>
+FAX: 770-427-1150<br>
+BBS: 770-427-1045<br>
+CompuServe: 76702,1207
+
+<P>
+<P>
+ZSoft publishes the following technical reference manual describing
+the PCX format:
+
+<P><BLOCKQUOTE>
+<P>
+ZSoft Corporation, <i>Technical Reference
+Manual</i>, Revision 5, Marietta, GA, 1990.
+</BLOCKQUOTE><P>
+<P>
+PCX is a very popular format that has been
+described in many books and magazine articles. The following manual
+and magazine articles also document the format and use of
+PCX files:
+
+<P><BLOCKQUOTE>
+<P>
+Ashdown, Ian, "PCX Graphics," <i>C Users
+Journal</i>, vol. 9, no. 8, August 1991, pp. 89-96.
+
+<P>
+Azer, S., "Working with PCX Files,"
+<i>Microcornucopia</i>, no. 42, July-August 1988,
+p. 42.
+
+<P>
+Luze, Marv, "Printing PCX Files," <i>C
+Gazette</i>, vol. 5, no. 2, Winter 1990-91,
+pp. 11-22.
+
+<P>
+Quirk, K., "Translating PCX Files,"
+<i>Dr. Dobb's Journal</i>, vol. 14, no. 8, August
+1989, pp. 30-36, 105-108.
+</BLOCKQUOTE><P>
+<p>
+
+<hr>
+<p>
+<A HREF="pbm.htm"><img src="../../images/en/txtpreva.gif"></A>
+<A HREF="pds.htm"><img src="../../images/en/txtnexta.gif"></A>
+<A HREF="../book.htm"><img src="../../images/en/txtupa.gif"></A>
+<a href="../bookidx.htm"><img src="../../images/en/txttoidx.gif"></a>
+<br>
+<a href="../booktoc.htm"><img src="../../images/en/btntoc.gif"></a>
+<a href="../book/glossary.htm"><img src="../../images/en/btnglos.gif"></a>
+<a href="../main.htm"><img src="../../images/en/btnmain.gif"></a>
+<a href="../formats.htm"><img src="../../images/en/btnfmt.gif"></a>
+<a href="../software.htm"><img src="../../images/en/btnsoft.gif"></a>
+<a href="../internet.htm"><img src="../../images/en/btninet.gif"></a>
+<a href="../book.htm"><img src="../../images/en/btnbook.gif"></a>
+<P>
+Copyright &copy; 1996, 1994 O'Reilly &amp; Associates, Inc.  All Rights Reserved.
+<p>
+
+</body>
+</html>
